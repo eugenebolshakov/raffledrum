@@ -5,5 +5,6 @@
   %body
     - if logged_in?
       = "Hi, #{current_user.name}!"
+      = link_to 'Log out', logout_path, :method => :delete
     #flash= flash[:notice]
     = yield
