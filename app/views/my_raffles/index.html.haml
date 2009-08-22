@@ -1,5 +1,6 @@
 %h2 Your Raffles
 
 - @raffles.each do |raffle|
-  .raffle
+  %div{:id => "raffle-#{raffle.id}"}
     = "##{raffle.hashtag}"
+    = "##{raffle.participants.count} participants"

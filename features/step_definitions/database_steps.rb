@@ -1,5 +1,9 @@
 Given /^I have a raffle with hashtag "([^\"]*)"$/ do |hashtag|
-  Factory :raffle, :hashtag => hashtag, :user => current_user
+  @raffle = Factory :raffle, :hashtag => hashtag, :user => current_user
+end
+
+Given /^there are (\d+) participants?$/ do |number|
+  number.to_i.times { Factory :participant, :raffle => @raffle }
 end
 
 Then /^a raffle with hashtag "([^\"]*)" should exist$/ do |hashtag|

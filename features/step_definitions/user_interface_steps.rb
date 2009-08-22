@@ -8,3 +8,9 @@ Then /^I should be asked to log in with my twitter account$/ do
     'https://twitter.com/oauth/authenticate?oauth_token=fake&oauth_callback=http%3A%2F%2Flocalhost%3A3000%2Foauth_callback'
   )
 end
+
+Then /^I should see raffle details$/ do
+  within "#raffle-#{@raffle.id}" do |scope|
+    scope.should contain("#{@raffle.participants.size} participants")
+  end
+end
