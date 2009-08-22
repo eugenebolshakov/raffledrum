@@ -41,4 +41,8 @@ Rails::Initializer.run do |config|
   config.gem 'twitter-auth', :lib => 'twitter_auth'
   config.gem 'json'
   config.gem 'haml'
+  config.gem "justinfrench-formtastic", 
+    :lib     => 'formtastic',
+    :source  => 'http://gems.github.com'
+
 end

@@ -23,3 +23,9 @@ end
 
 require 'cucumber/rails/rspec'
 require 'webrat/core/matchers'
+
+FakeWeb.allow_net_connect = false
+FakeWeb.register_uri(:post, 'https://twitter.com/oauth/request_token', :body => 'oauth_token=fake&oauth_token_secret=fake')
+FakeWeb.register_uri(:post, 'https://twitter.com/oauth/access_token', :body => 'oauth_token=fake&oauth_token_secret=fake')
+FakeWeb.register_uri(:get, 'https://twitter.com/account/verify_credentials.json', 
+                     :response => File.join(RAILS_ROOT, 'features', 'fixtures', 'verify_credentials.json'))
