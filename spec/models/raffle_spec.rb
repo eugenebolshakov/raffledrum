@@ -16,6 +16,21 @@ describe Raffle do
     specify { @it.should validate_presence_of(attr) }
   end
 
+  it 'should validate format of hashtag' do
+    ['5am', 'railsrumble', 'looooooooongbutvalid'].each do |valid|
+      @it.should validate_format_of(:hashtag).with(valid)
+    end
+    ['foo-bar', 'foo bar', 'toooooooooooolong'].each do |invalid|
+      @it.should validate_format_of(:hashtag).not_with(invalid).
+        with_message('must be 16 chars max. Letters or digits only')
+    end
+  end
+
+  it 'should strip out leading hash symbol' do
+    @it.hashtag = '#5am'
+    @it.hashtag.should == '5am'
+  end
+
   describe 'when returning raffles for udpate' do
     it 'should not return raffles that have not started yet' do
       Factory :raffle, :start_time => 1.hour.from_now

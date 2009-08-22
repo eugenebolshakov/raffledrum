@@ -1,4 +1,8 @@
 Validate raffle dates
 JS Calendar
-Validate hashtag (16 symbols max, \w only)
 Set timezone for the current user
+Make the end of the day of end_time is used
+Distingiush active and archived raffles
+Display active raffles orders by end_time ASC
+Redirect authenticated users from the homepage accordingly
+Add xss_terminate
