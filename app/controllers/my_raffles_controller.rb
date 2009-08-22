@@ -4,4 +4,18 @@ class MyRafflesController < ApplicationController
   def new
     @raffle = Raffle.new
   end
+
+  def create
+    @raffle = current_user.raffles.new(params[:raffle])
+    if @raffle.save
+      flash[:notice] = 'Raffle has been created'
+      redirect_to my_raffles_path
+    else
+      render :action => :new
+    end
+  end
+
+  def index
+    @raffles = current_user.raffles
+  end
 end

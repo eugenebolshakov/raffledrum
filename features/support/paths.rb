@@ -14,6 +14,9 @@ module NavigationHelpers
     when /the new raffle page/
       new_my_raffle_path
 
+    when /the list of my raffles/
+      my_raffles_path
+
     else
       raise "Can't find mapping from \"#{page_name}\" to a path.\n" +
         "Now, go and add a mapping in #{__FILE__}"

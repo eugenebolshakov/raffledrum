@@ -1,3 +1,7 @@
-= semantic_form_for @raffle, :url => my_raffles_path do |form|
-  = form.inputs
+- semantic_form_for @raffle, :url => my_raffles_path do |form|
+  - form.inputs do
+    = form.input :prize, :requred => false
+    = form.input :start_time, :as => :string, :required => false
+    = form.input :end_time, :as => :string, :required => false
+    = form.input :hashtag, :required => false
   = form.buttons

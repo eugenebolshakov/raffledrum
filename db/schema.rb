@@ -9,7 +9,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090822030121) do
+ActiveRecord::Schema.define(:version => 20090822042738) do
+
+  create_table "raffles", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "prize"
+    t.datetime "start_time"
+    t.datetime "end_time"
+    t.string   "hashtag"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "raffles", ["user_id"], :name => "index_raffles_on_user_id"
 
   create_table "users", :force => true do |t|
     t.string   "twitter_id"
