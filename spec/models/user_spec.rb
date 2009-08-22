@@ -6,4 +6,9 @@ describe User do
   end
 
   specify { @it.should have_many(:raffles) }
+
+  it 'should return followers' do
+    FakeWeb.register_uri(:get, 'https://twitter.com/followers/ids.json', :body => '[12, 123]')
+    @it.followers.should == %w(12 123)
+  end
 end

@@ -9,7 +9,21 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090822042738) do
+ActiveRecord::Schema.define(:version => 20090822075938) do
+
+  create_table "participants", :force => true do |t|
+    t.integer  "raffle_id"
+    t.string   "twitter_user_id"
+    t.string   "twitter_login"
+    t.string   "twitter_image"
+    t.string   "tweet"
+    t.string   "tweet_id"
+    t.datetime "posted_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "participants", ["raffle_id"], :name => "index_participants_on_raffle_id"
 
   create_table "raffles", :force => true do |t|
     t.integer  "user_id"
@@ -19,6 +33,7 @@ ActiveRecord::Schema.define(:version => 20090822042738) do
     t.string   "hashtag"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "last_tweet_id"
   end
 
   add_index "raffles", ["user_id"], :name => "index_raffles_on_user_id"

@@ -10,6 +10,7 @@ describe Raffle do
   end
 
   specify { @it.should belong_to(:user) }
+  specify { @it.should have_many(:participants) }
 
   %w(prize start_time end_time hashtag).each do |attr|
     specify { @it.should validate_presence_of(attr) }

@@ -4,6 +4,7 @@ class Raffle < ActiveRecord::Base
 
   # Associations
   belongs_to :user
+  has_many :participants
 
   # Validations
   validates_presence_of :prize, :start_time, :end_time, :hashtag
