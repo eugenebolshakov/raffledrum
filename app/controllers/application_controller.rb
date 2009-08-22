@@ -7,4 +7,12 @@ class ApplicationController < ActionController::Base
 
   # Scrub sensitive parameters from your log
   # filter_parameter_logging :password
+
+  before_filter :set_timezone, :if => :logged_in?
+
+  private
+
+    def set_timezone
+      Time.zone = current_user.time_zone if current_user.time_zone
+    end
 end

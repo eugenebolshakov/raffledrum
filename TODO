@@ -2,6 +2,5 @@ Validate raffle dates
 JS Calendar
 Set timezone for the current user
 Make the end of the day of end_time is used
-Distingiush active and archived raffles
 Add xss_terminate
 Add indexes
