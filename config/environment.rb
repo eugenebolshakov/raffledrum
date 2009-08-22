@@ -44,5 +44,5 @@ Rails::Initializer.run do |config|
   config.gem "justinfrench-formtastic", 
     :lib     => 'formtastic',
     :source  => 'http://gems.github.com'
-
+  config.gem 'httparty'
 end
