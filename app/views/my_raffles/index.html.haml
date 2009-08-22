@@ -1,8 +1,10 @@
 %h2 Your Raffles
 
+%p= link_to('Start a new one', new_my_raffle_path)
+
 - @raffles.each do |raffle|
   %div{:id => "raffle-#{raffle.id}"}
     = link_to "##{raffle.hashtag}", my_raffle_path(raffle)
     <br />
     = "participant".countize(raffle.participants.count)
-    = "ends in #{distance_of_time_in_words(Time.now, raffle.end_time)}"
+    = raffle_time(raffle)

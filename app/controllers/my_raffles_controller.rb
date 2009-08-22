@@ -16,7 +16,7 @@ class MyRafflesController < ApplicationController
   end
 
   def index
-    @raffles = current_user.raffles
+    @raffles = current_user.raffles.active + current_user.raffles.inactive
   end
 
   def show

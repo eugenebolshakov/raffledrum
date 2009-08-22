@@ -31,6 +31,48 @@ describe Raffle do
     @it.hashtag.should == '5am'
   end
 
+  describe 'when responding to status check methods' do
+    before(:each) do
+      @active = Raffle.new(:start_time => 2.minutes.ago, :end_time => 2.minutes.from_now)
+      @ended  = Raffle.new(:start_time => 3.minutes.ago, :end_time => 1.minute.ago)
+      @future = Raffle.new(:start_time => 2.minutes.from_now, :end_time => 3.minutes.from_now)
+    end
+
+    it 'should respond to active?' do
+      @active.should be_active
+      @ended.should_not be_active
+      @future.should_not be_active
+    end
+
+    it 'should respond to ended?' do
+      @ended.should be_ended
+      @active.should_not be_ended
+      @future.should_not be_ended
+    end
+
+    it 'should respons to future?' do
+      @future.should be_future
+      @active.should_not be_future
+      @ended.should_not be_future
+    end
+  end
+
+  it 'should have "active" named scope' do
+    Factory :raffle, :start_time => 1.minute.from_now
+    Factory :raffle, :start_time => 3.minutes.ago, :end_time => 1.minute.ago
+    Raffle.active.should be_empty
+    r = Factory :raffle, :start_time => 1.minute.ago, :end_time => 1.minute.from_now
+    Raffle.active.should == [r]
+  end
+
+  it 'should have "inactive" named scope' do
+    Factory :raffle, :start_time => 1.minute.ago, :end_time => 1.minute.from_now
+    Raffle.inactive.should be_empty
+    r1 = Factory :raffle, :start_time => 1.minute.from_now
+    r2 = Factory :raffle, :start_time => 3.minutes.ago, :end_time => 1.minute.ago
+    Raffle.inactive.should == [r1, r2]
+  end
+
   describe 'when returning raffles for udpate' do
     it 'should not return raffles that have not started yet' do
       Factory :raffle, :start_time => 1.hour.from_now
