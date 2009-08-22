@@ -1,5 +1,6 @@
 set :application, "raffledrum"
 set :repository,  "git@github.com:railsrumble/rr09-team-41.git"
+set :rails_env, 'production'
 
 default_run_options[:pty] = true
 
