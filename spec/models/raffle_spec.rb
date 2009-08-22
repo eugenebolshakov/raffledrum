@@ -11,6 +11,7 @@ describe Raffle do
 
   specify { @it.should belong_to(:user) }
   specify { @it.should have_many(:participants) }
+  specify { @it.should belong_to(:winner) }
 
   %w(prize start_time end_time hashtag).each do |attr|
     specify { @it.should validate_presence_of(attr) }
@@ -92,6 +93,17 @@ describe Raffle do
     it 'should not return raffles that ended more than 30 minutes ago' do
       r = Factory :raffle, :start_time => 1.hour.ago, :end_time => 31.minutes.ago
       Raffle.for_update.should be_blank
+    end
+  end
+
+  describe 'when selecting winner' do
+    it 'should pick one of the participants' do
+      @it = Factory :raffle
+      3.times { Factory :participant, :raffle => @it }
+      @it.winner.should be_nil
+      @it.pick_winner!
+      @it.winner.should_not be_nil
+      @it.participants.should include(@it.winner)
     end
   end
 end

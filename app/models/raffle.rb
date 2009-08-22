@@ -5,6 +5,7 @@ class Raffle < ActiveRecord::Base
   # Associations
   belongs_to :user
   has_many :participants
+  belongs_to :winner, :class_name => 'Participant'
 
   # Validations
   validates_presence_of :prize, :start_time, :end_time, :hashtag
@@ -39,5 +40,9 @@ class Raffle < ActiveRecord::Base
 
   def future?
     start_time > Time.now
+  end
+
+  def pick_winner!
+    update_attribute(:winner, participants[rand(participants.size)])
   end
 end

@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090822170117) do
+ActiveRecord::Schema.define(:version => 20090822183700) do
 
   create_table "delayed_jobs", :force => true do |t|
     t.integer  "priority",   :default => 0
@@ -47,6 +47,7 @@ ActiveRecord::Schema.define(:version => 20090822170117) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "last_tweet_id"
+    t.integer  "winner_id"
   end
 
   add_index "raffles", ["user_id"], :name => "index_raffles_on_user_id"

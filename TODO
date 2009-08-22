@@ -1,5 +1,6 @@
 Select winner
 Only followers participate
+Change raffle update interval depending on how many tweets are fetched
 Validate raffle dates
 JS Calendar
 Make the end of the day of end_time is used
