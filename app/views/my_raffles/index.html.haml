@@ -3,4 +3,6 @@
 - @raffles.each do |raffle|
   %div{:id => "raffle-#{raffle.id}"}
     = "##{raffle.hashtag}"
-    = "##{raffle.participants.count} participants"
+    <br />
+    = "participant".countize(raffle.participants.count)
+    = "ends in #{distance_of_time_in_words(Time.now, raffle.end_time)}"

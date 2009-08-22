@@ -46,3 +46,5 @@ Rails::Initializer.run do |config|
     :source  => 'http://gems.github.com'
   config.gem 'httparty'
 end
+
+require RAILS_ROOT + '/lib/core_extensions'
