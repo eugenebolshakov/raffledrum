@@ -12,8 +12,6 @@ class Raffle < ActiveRecord::Base
     :message => 'must be 16 chars max. Letters or digits only'
 
   # Named Scopes
-  default_scope :order => 'end_time DESC'
-
   named_scope :for_update, 
     :conditions => ['start_time <= ? AND end_time >= ?', Time.now.utc, (Time.now - 30.minutes).utc]
   named_scope :active, lambda {{

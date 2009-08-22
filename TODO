@@ -3,6 +3,5 @@ JS Calendar
 Set timezone for the current user
 Make the end of the day of end_time is used
 Distingiush active and archived raffles
-Redirect authenticated users from the homepage accordingly
 Add xss_terminate
 Add indexes
