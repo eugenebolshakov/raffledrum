@@ -21,5 +21,6 @@ class MyRafflesController < ApplicationController
 
   def show
     @raffle = Raffle.find(params[:id])
+    @participants = @raffle.participants.paginate(:page => params[:page])
   end
 end

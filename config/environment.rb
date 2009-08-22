@@ -38,13 +38,17 @@ Rails::Initializer.run do |config|
   # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
   # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}')]
   # config.i18n.default_locale = :de
-  config.gem 'twitter-auth', :lib => 'twitter_auth'
+  config.gem 'twitter-auth', 
+    :lib => 'twitter_auth'
   config.gem 'json'
   config.gem 'haml'
   config.gem "justinfrench-formtastic", 
     :lib     => 'formtastic',
     :source  => 'http://gems.github.com'
   config.gem 'httparty'
+  config.gem 'mislav-will_paginate', 
+    :lib => 'will_paginate',
+    :source  => 'http://gems.github.com'
 end
 
 require RAILS_ROOT + '/lib/core_extensions'
