@@ -4,12 +4,13 @@ class TwitterSearch
   base_uri 'search.twitter.com'
   headers 'User-Agent' => 'Raffle Drum App'
 
-  def initialize(keyword)
+  def initialize(keyword, options = {})
     @keyword = keyword
+    @options = options
   end
 
-  def results(options = {})
-    self.class.get('/search.json', party_options(options))
+  def results
+    self.class.get('/search.json', party_options(@options))
   end
 
   def each

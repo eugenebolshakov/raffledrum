@@ -61,16 +61,16 @@ describe RaffleUpdater do
       @raffle.reload.participants.should be_empty
     end
 
-    it 'should ignore tweets from people who do not follow the raffle creator' do
-      @raffle.user.stub!(:followers).and_return(['12', '123', '1234'])
-      @search.results = [
-        tweet('from_user_id' => '12345'),
-        tweet('from_user_id' => '12')
-      ]
-      @it.update
-      @raffle.reload.participants.size.should == 1
-      @raffle.participants.first.twitter_user_id.should eql('12')
-    end
+    # it 'should ignore tweets from people who do not follow the raffle creator' do
+    #   @raffle.user.stub!(:followers).and_return(['12', '123', '1234'])
+    #   @search.results = [
+    #     tweet('from_user_id' => '12345'),
+    #     tweet('from_user_id' => '12')
+    #   ]
+    #   @it.update
+    #   @raffle.reload.participants.size.should == 1
+    #   @raffle.participants.first.twitter_user_id.should eql('12')
+    # end
 
     it 'should not add multiple tweets for the same user' do
       @search.results = [
