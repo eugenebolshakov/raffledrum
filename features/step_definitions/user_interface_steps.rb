@@ -22,3 +22,7 @@ Then /^I should see the participants$/ do
     end
   end
 end
+
+Then /^I should be redirected to (.+)$/ do |page_name|
+  (response.redirect_url || request.path).should == path_to(page_name)
+end
