@@ -8,6 +8,7 @@ class MyRafflesController < ApplicationController
   def create
     @raffle = current_user.raffles.new(params[:raffle])
     if @raffle.save
+      Delayed::Job.enqueue(RaffleUpdateJob.new(@raffle.id))
       flash[:notice] = 'Raffle has been created'
       redirect_to my_raffles_path
     else

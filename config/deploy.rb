@@ -28,3 +28,8 @@ namespace(:deploy) do
 end
 
 after 'deploy:update_code' , 'symlink_database_yml'
+
+# DJ tasks
+after "deploy:stop", "delayed_job:stop"
+after "deploy:start", "delayed_job:start"
+after "deploy:restart", "delayed_job:restart"
