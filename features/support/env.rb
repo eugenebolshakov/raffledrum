@@ -24,8 +24,19 @@ end
 require 'cucumber/rails/rspec'
 require 'webrat/core/matchers'
 
+require 'factory_girl'
+require File.expand_path(File.dirname(__FILE__) + '/../../spec/load_factories')
+
 FakeWeb.allow_net_connect = false
 FakeWeb.register_uri(:post, 'https://twitter.com/oauth/request_token', :body => 'oauth_token=fake&oauth_token_secret=fake')
 FakeWeb.register_uri(:post, 'https://twitter.com/oauth/access_token', :body => 'oauth_token=fake&oauth_token_secret=fake')
 FakeWeb.register_uri(:get, 'https://twitter.com/account/verify_credentials.json', 
                      :response => File.join(RAILS_ROOT, 'features', 'fixtures', 'verify_credentials.json'))
+
+module Helpers
+  def current_user
+    User.find(request.session[:user_id])
+  end
+end
+
+World(Helpers)

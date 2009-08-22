@@ -1,5 +1,5 @@
 Given /^I have a raffle with hashtag "([^\"]*)"$/ do |hashtag|
-  Factory :raffle, :hashtag => hashtag
+  Factory :raffle, :hashtag => hashtag, :user => current_user
 end
 
 Then /^a raffle with hashtag "([^\"]*)" should exist$/ do |hashtag|
