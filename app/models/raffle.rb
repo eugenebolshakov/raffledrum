@@ -10,6 +10,8 @@ class Raffle < ActiveRecord::Base
   validates_presence_of :prize, :start_time, :end_time, :hashtag
 
   # Named Scopes
+  default_scope :order => 'end_time DESC'
+
   named_scope :for_update, 
     :conditions => ['start_time <= ? AND end_time >= ?', Time.now.utc, (Time.now - 30.minutes).utc]
 end

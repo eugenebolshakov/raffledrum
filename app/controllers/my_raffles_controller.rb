@@ -18,4 +18,8 @@ class MyRafflesController < ApplicationController
   def index
     @raffles = current_user.raffles
   end
+
+  def show
+    @raffle = Raffle.find(params[:id])
+  end
 end

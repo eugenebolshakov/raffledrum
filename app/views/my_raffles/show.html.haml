@@ -1,0 +1,10 @@
+%h2= "##{@raffle.hashtag}"
+
+%h3 Participants
+
+- @raffle.participants.each do |participant|
+  %div{:id => "participant-#{participant.id}"}
+    = image_tag participant.twitter_image
+    = link_to participant.twitter_login, twitter_user_url(participant), :target => :blank
+    = participant.tweet
+    = link_to "#{time_ago_in_words(participant.posted_at)} ago", twitter_status_url(participant), :target => :blank

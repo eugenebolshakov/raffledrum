@@ -14,3 +14,11 @@ Then /^I should see raffle details$/ do
     scope.should contain("#{@raffle.participants.size} participants")
   end
 end
+
+Then /^I should see the participants$/ do
+  @raffle.participants.each do |participant|
+    within "#participant-#{participant.id}" do |scope|
+      scope.should contain(participant.tweet)
+    end
+  end
+end

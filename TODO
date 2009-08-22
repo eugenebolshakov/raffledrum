@@ -1,3 +1,4 @@
 Validate raffle dates
 JS Calendar
 Validate hashtag (16 symbols max, \w only)
+Set timezone for the current user

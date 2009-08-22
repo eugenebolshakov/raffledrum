@@ -2,7 +2,7 @@
 
 - @raffles.each do |raffle|
   %div{:id => "raffle-#{raffle.id}"}
-    = "##{raffle.hashtag}"
+    = link_to "##{raffle.hashtag}", my_raffle_path(raffle)
     <br />
     = "participant".countize(raffle.participants.count)
     = "ends in #{distance_of_time_in_words(Time.now, raffle.end_time)}"
