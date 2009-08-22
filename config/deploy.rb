@@ -28,4 +28,3 @@ namespace(:deploy) do
 end
 
 after 'deploy:update_code' , 'symlink_database_yml'
-after 'deploy' , 'gems:install'
