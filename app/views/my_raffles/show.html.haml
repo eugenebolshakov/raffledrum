@@ -1,5 +1,7 @@
 %h2= "##{@raffle.hashtag}"
 
+%p= raffle_time(@raffle)
+
 %h3 Participants
 
 - @raffle.participants.each do |participant|
