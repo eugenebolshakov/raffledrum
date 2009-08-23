@@ -14,3 +14,10 @@
       = render :partial => 'layouts/header'
       #flash= flash[:notice]
       #middle= yield
+      #footer
+        &copy;
+        = link_to 'Rails Rumble', 'http://www.railsrumble.com', :target => '_blank'
+        2009 Solo Team #041:
+        = link_to '@eugenebolshakov', twitter_user_url('eugenebolshakov')
+        \/
+        = link_to 'www.taknado.com', 'http://www.taknado.com'
