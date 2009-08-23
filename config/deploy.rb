@@ -6,6 +6,7 @@ default_run_options[:pty] = true
 
 set :scm, "git"
 set :scm_passphrase, ""
+set :branch, "railsrumble09"
 set :user, "rumble09-041"
 
 set :deploy_to, "/var/www/#{application}"
