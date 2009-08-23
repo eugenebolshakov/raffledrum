@@ -1,7 +1,7 @@
 class CreateTwitterBots < ActiveRecord::Migration
   def self.up
     create_table :twitter_bots do |t|
-      t.string :login, :password
+      t.string :login, :crypted_password, :salt
     end
     [
       {:login => 'raffledrum', :password => '911iddqd'},

@@ -55,7 +55,8 @@ ActiveRecord::Schema.define(:version => 20090823185915) do
 
   create_table "twitter_bots", :force => true do |t|
     t.string "login"
-    t.string "password"
+    t.string "crypted_password"
+    t.string "salt"
   end
 
   create_table "users", :force => true do |t|
