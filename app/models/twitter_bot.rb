@@ -5,6 +5,9 @@ class TwitterBot < ActiveRecord::Base
     TwitterAuth::Dispatcher::Basic.new(self)
   end
 
+  def crypted_password=(*params); end
+  def salt=(*params); end
+
   def password
     read_attribute(:password)
   end
