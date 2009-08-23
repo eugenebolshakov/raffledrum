@@ -1,6 +1,6 @@
 body {
-  background-color: #FFF;
-  font-family: 'Lucida Grande',sans-serif;
+  /* background-color: #FFF; */
+  font-family: arial, sans-serif;
   font-size: 0.75em;
 }
 
@@ -34,32 +34,43 @@ ul {
 
 .top-navigation {
   display: inline-block;
-  padding: 0 0.7em;
-  background-color: #ebebeb;
+  padding: 0;
+  background: url('/images/bg/ticket_middle.jpg') top;
 }
 
 .top-navigation li {
   position: relative;
-}
-
-.top-navigation * {
-  display: inline;
+  display: inline-block;
+  height: 40px;
 }
 
 .top-navigation li a, .top-navigation li span {
   font-size: 1.05em;
-  padding: 0.5em 0.15em;
+  padding: 0.95em 0.15em;
   border: 1px solid transparent;
   display: inline-block;
+  font-weight: bold;
+}
+
+.top-navigation li.last {
+  background: url('/images/bg/ticket_last.jpg') no-repeat right top;
+  padding-right: 25px;
+}
+
+.top-navigation li.first {
+  background: url('/images/bg/ticket_first.jpg') no-repeat left top;
+  padding-left: 25px;
 }
 
 #middle {
-  background-color: #ebebeb;
+  /* background-color: #608ae0; */
+  background: url('/images/bg/ticket_top.jpg') top repeat-x #79a9f3;
   padding: 10px 10px 10px;
 }
 
 #footer {
-  padding-top: 5px;
+  background: url('/images/bg/ticket_bottom.jpg') top repeat-x;
+  padding-top: 10px;
   text-align: center;
 }
 
