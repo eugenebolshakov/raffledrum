@@ -4,4 +4,3 @@ Add indexes
 Add support for multiple pages (through API) of tweets
 Add jquery JS for links that do POST or PUT
 style flash
-style pagination

@@ -136,3 +136,55 @@ a.invert:hover {
   display:none;
 }
 
+.pagination {
+  background: white;
+  margin: 2em 0;
+}
+
+.pagination a, .pagination span {
+  padding: .2em .5em;
+  display: block;
+  float: left;
+  margin-right: 1px; 
+}
+
+.pagination span.disabled {
+  color: #999;
+  border: 1px solid #999; 
+}
+
+.pagination span.current {
+  font-weight: bold;
+  background: #5599BB;
+  color: white;
+  border: 1px solid #5599BB; 
+}
+
+.pagination a {
+  text-decoration: none;
+  color: #5599BB;
+  border: 1px solid #105CB6; 
+}
+
+.pagination a:hover, .pagination a:focus {
+  color: #002233;
+  border-color: #002233; 
+}
+
+.pagination:after {
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden; 
+}
+
+* html .pagination {
+  height: 1%; 
+}
+
+*:first-child+html .pagination {
+  overflow: hidden; 
+}
+
+
