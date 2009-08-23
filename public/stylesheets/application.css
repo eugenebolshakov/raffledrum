@@ -1,6 +1,7 @@
 body {
   font-family: sans-serif;
   font-size: 0.75em;
+  margin: 0;
 }
 
 img {
@@ -14,16 +15,26 @@ ul {
   list-style-type: none;
 }
 
+a {
+  color: #002233;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration:underline;
+}
+
 #container {
-  margin: 1em auto;
+  margin: 0 auto 1em auto;
   position: relative;
   width: 763px;
 }
 
 #header {
-  text-align: right;
-  height: 100px;
-  margin-bottom: 15px;
+  /* text-align: right; */
+  /* height: 100px; */
+  /* margin-bottom: 15px; */
 }
 
 #logo img {
@@ -32,30 +43,74 @@ ul {
 }
 
 .top-navigation {
+  margin-top: 0;
+  padding: 0 0 0 1em;
+  background-color: #5599BB;
   display: inline-block;
-  padding: 0;
 }
 
-.top-navigation li {
-  position: relative;
-  display: inline-block;
-  height: 40px;
+.top-navigation * {
+  display: inline;
 }
 
 .top-navigation li a, .top-navigation li span {
-  padding: 0.95em 0.15em;
+  margin-right: 1em;
+  padding: 0.75em 0.15em;
   border: 1px solid transparent;
-  display: inline-block;
   font-weight: bold;
+  display: inline-block;
+  color: #fff;
 }
 
 #middle {
-  padding: 10px 10px 10px;
+  padding: 1em;
+}
+
+.hello h1 {
+  font-size: 2.5em;
+}
+
+.hello h2 {
+  font-size: 1.8em;
+}
+
+.hello ol {
+  font-size: 2em;
+}
+
+.hello a.invert {
+  display: inline-block;
+  color: #fff;
+  background-color: #002233;
+  padding: 0.5em 1em;
+}
+
+.hello a.invert:hover {
+  background-color: #5599BB;
+}
+
+.hello .start {
+  margin-bottom: 4em;
+}
+
+.raffle {
+  margin: 1em 0 2em 0;
+}
+
+.raffle .ad {
+  font-size: 1.2em;
+}
+
+.time {
+  display: block;
+  color: #999999;
+  font-style: italic;
+  font-size: 0.9em;
 }
 
 #footer {
   padding-top: 10px;
   text-align: center;
+  display:none;
 }
-
 

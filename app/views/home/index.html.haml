@@ -1,7 +1,21 @@
+.hello
+  .start
+    %h1 Raffle off your stuff on twitter
 
-= link_to 'Create your twitter raffle', new_my_raffle_path
+    %ol
+      %li You start a raffle
+      %li People tweet to participate
+      %li Raffledrum picks a winner for for you
 
-- if @random_raffle
-  %div{:id => "raffle-#{@random_raffle.id}"}
-    = raffle_ad(@random_raffle)
-    = raffle_time(@random_raffle)
+    %div
+      = link_to 'Log in', new_my_raffle_path, :class => 'invert'
+      with your twitter account to begin
+
+  - if @random_raffle
+    %h2 Better yet, participate yourself!
+
+    %div.raffle{:id => "raffle-#{@random_raffle.id}"}
+      %span.ad= raffle_ad(@random_raffle)
+      %span.time= raffle_time(@random_raffle)
+    %div
+      = link_to 'More', raffles_path, :class => 'invert'

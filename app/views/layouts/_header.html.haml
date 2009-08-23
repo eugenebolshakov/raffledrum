@@ -1,15 +1,15 @@
 #header
-  = link_to image_tag('logo.png'), root_path, :id => 'logo'
+  /= link_to image_tag('logo.png'), root_path, :id => 'logo'
 
   %ul.top-navigation
     - if logged_in?
-      %li.first
+      %li
         %span= "Hi, #{current_user.name}!"
       %li= link_to 'My Raffles', my_raffles_path
       %li= link_to 'Start Raffle', new_my_raffle_path
       %li= link_to 'Participate', raffles_path
-      %li.last= link_to 'Log out', logout_path, :method => :delete
+      %li= link_to 'Log out', logout_path, :method => :delete
     - else
-      %li.first= link_to 'Log In', login_path
+      %li= link_to 'Log in', login_path
       %li= link_to 'Start Raffle', new_my_raffle_path
-      %li.last= link_to 'Browse Raffles', raffles_path
+      %li= link_to 'Browse Raffles', raffles_path
