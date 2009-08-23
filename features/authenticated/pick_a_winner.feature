@@ -15,5 +15,9 @@ Feature: Pick a winner
     When I go to the list of participants
     Then I should see the winner
 
-
-
+  Scenario: Select a different winner
+    Given the winner is selected
+    When I go to the list of participants
+    And I select a different winner
+    Then the winner should be changed
+    And I should see the winner

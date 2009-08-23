@@ -5,6 +5,7 @@
 - if @raffle.ended?
   - if @raffle.winner
     .winner= render :partial => 'participant', :object => @raffle.winner
+    = link_to 'Choose another winner', change_winner_my_raffle_path(@raffle), :method => :put
   - else
     The winner is not selected yet. Please check back in a moment!
 

@@ -12,6 +12,7 @@ end
 
 Given /the winner is selected$/ do
   @raffle.pick_winner!
+  @winner = @raffle.winner
 end
 
 Then /^a raffle with hashtag "([^\"]*)" should exist$/ do |hashtag|
@@ -30,4 +31,9 @@ Then /^a job to pick a winner should be scheduled$/ do
   job.name.should == 'RafflePickWinnerJob'
   job.payload_object[:id].should == @raffle.id
   job.run_at.should == @raffle.end_time
+end
+
+Then /^the winner should be changed$/ do
+  @winner.should_not == @raffle.reload.winner
+  @winner = @raffle.winner
 end

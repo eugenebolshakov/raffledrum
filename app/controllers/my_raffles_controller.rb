@@ -1,5 +1,6 @@
 class MyRafflesController < ApplicationController
   before_filter :login_required
+  before_filter :find_raffle, :only => %w(show change_winner)
 
   def new
     @raffle = Raffle.new
@@ -22,7 +23,17 @@ class MyRafflesController < ApplicationController
   end
 
   def show
-    @raffle = Raffle.find(params[:id])
     @participants = @raffle.participants.paginate(:page => params[:page])
   end
+
+  def change_winner
+    @raffle.pick_winner!
+    redirect_to my_raffle_path(@raffle)
+  end
+
+  private
+
+    def find_raffle
+      @raffle = Raffle.find(params[:id])
+    end
 end

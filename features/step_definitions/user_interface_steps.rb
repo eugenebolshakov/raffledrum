@@ -3,6 +3,10 @@ Given /^I am logged in$/ do
   visit oauth_callback_path
 end
 
+When /^I select a different winner$/ do
+  visit change_winner_my_raffle_path(@raffle), :put
+end
+
 Then /^I should be asked to log in with my twitter account$/ do
   response.redirect_url.should eql(
     'https://twitter.com/oauth/authenticate?oauth_token=fake&oauth_callback=http%3A%2F%2Flocalhost%3A3000%2Foauth_callback'
