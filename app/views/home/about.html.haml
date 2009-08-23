@@ -1,0 +1,26 @@
+%h1 WTF is RuffleDrum??
+
+%p 
+  It's an app I've built over the weekend for
+  = link_to "Rails Rumble", "http://www.railsrumble.com", :target => '_blank'
+  Basically it allows to run raffles on twitter. You can start a raffle by specifying 
+  a hashtag that participants need to tweet. The app monitors tweets with the hashtag
+  and selects a winner once the raffle ends.
+
+%h2 Why?
+
+%p 
+  I needed this sort of thing to raffle off a couple of books generously provided by 
+  O'Reilly for September Ruby Group Meeting in Saint-Petersburg, Russia.
+  There's actually a command line tool that does a simiar thing:
+  = link_to 'contest by Dan Croak (thoughtbot)', 'http://github.com/thoughtbot/contest/tree'
+  But I needed a project for Rails Rumble anyway, hence the webapp.
+
+%h2 Thanks
+
+%p
+  I'd like to thank my wife Irina for her patience (sorry for the wasted weekend!) and the
+  awesome
+  = link_to '@raffledrum', twitter_user_url('raffledrum')
+  twitter avatar. Also thanks to people who had created all those open source tools that 
+  I've used to make this.

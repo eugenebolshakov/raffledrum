@@ -8,4 +8,6 @@ class HomeController < ApplicationController
       @random_raffle = Raffle.active.find(:first, :order => 'rand()')
     end
   end
+
+  def about; end
 end

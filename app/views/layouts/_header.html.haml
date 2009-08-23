@@ -8,8 +8,10 @@
       %li= link_to 'My Raffles', my_raffles_path
       %li= link_to 'Start Raffle', new_my_raffle_path
       %li= link_to 'Participate', raffles_path
+      %li= link_to 'About', about_path
       %li= link_to 'Log out', logout_path, :method => :delete
     - else
       %li= link_to 'Log in', login_path
       %li= link_to 'Start Raffle', new_my_raffle_path
       %li= link_to 'Browse Raffles', raffles_path
+      %li= link_to 'About', about_path
