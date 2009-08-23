@@ -57,3 +57,8 @@ form.formtastic fieldset.buttons input {
   border: 0px;
   cursor: pointer;
 }
+
+
+form.formtastic fieldset.buttons input:hover {
+  background-color: #5599BB;
+}
