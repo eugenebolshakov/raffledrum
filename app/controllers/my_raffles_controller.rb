@@ -9,6 +9,7 @@ class MyRafflesController < ApplicationController
   def create
     @raffle = current_user.raffles.new(params[:raffle])
     if @raffle.save
+      Delayed::Job.enqueue(RaffleTweetJob.new(@raffle.id))
       Delayed::Job.enqueue(RaffleUpdateJob.new(@raffle.id))
       Delayed::Job.enqueue(RafflePickWinnerJob.new(@raffle.id), 0, @raffle.end_time)
       flash[:notice] = 'Raffle has been created'

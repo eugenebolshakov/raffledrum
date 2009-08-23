@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090823043416) do
+ActiveRecord::Schema.define(:version => 20090823185915) do
 
   create_table "delayed_jobs", :force => true do |t|
     t.integer  "priority",   :default => 0
@@ -52,6 +52,11 @@ ActiveRecord::Schema.define(:version => 20090823043416) do
   end
 
   add_index "raffles", ["user_id"], :name => "index_raffles_on_user_id"
+
+  create_table "twitter_bots", :force => true do |t|
+    t.string "login"
+    t.string "password"
+  end
 
   create_table "users", :force => true do |t|
     t.string   "twitter_id"
