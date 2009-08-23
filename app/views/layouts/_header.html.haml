@@ -7,9 +7,9 @@
         %span= "Hi, #{current_user.name}!"
       %li= link_to 'My Raffles', my_raffles_path
       %li= link_to 'Start Raffle', new_my_raffle_path
-      %li= link_to 'Participate', '#'
+      %li= link_to 'Participate', raffles_path
       %li= link_to 'Log out', logout_path, :method => :delete
     - else
       %li= link_to 'Log In', login_path
       %li= link_to 'Start Raffle', new_my_raffle_path
-      %li= link_to 'Browse Raffles', '#'
+      %li= link_to 'Browse Raffles', raffles_path

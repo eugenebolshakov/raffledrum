@@ -1,0 +1,11 @@
+%h2 Active Raffles
+
+- if @raffles.empty?
+  %p There are currently no active raffles. Check back latter!
+- else
+  - @raffles.each do |raffle|
+    %div{:id => "raffle-#{raffle.id}"}
+      = raffle_ad(raffle)
+      = raffle_time(raffle)
+
+  = will_paginate @raffles
