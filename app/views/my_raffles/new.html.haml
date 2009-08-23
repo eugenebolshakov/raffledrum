@@ -1,7 +1,9 @@
 - semantic_form_for @raffle, :url => my_raffles_path do |form|
   - form.inputs do
-    = form.input :prize, :required => false
-    = form.input :start_time, :as => :string, :required => false
-    = form.input :end_time, :as => :string, :required => false
-    = form.input :hashtag, :required => false
+    = form.input :prize, :required => false, :hint => 'What do you raffle off?'
+    - opts = {:label => 'Starts on', :hint => "00:00 #{Time.zone}", :input_html => {:value => format_date(@raffle.start_time)}}
+    = form.input :start_time, {:as => :string, :required => false}.merge(opts)
+    - opts = {:label => 'Ends on', :hint => "23:59 #{Time.zone}", :input_html => {:value => format_date(@raffle.end_time)}}
+    = form.input :end_time, {:as => :string, :required => false}.merge(opts)
+    = form.input :hashtag, :required => false, :hint => 'Only tweets with this #hashtag participate'
   = form.buttons

@@ -17,4 +17,8 @@ module ApplicationHelper
       "Starts in #{distance_of_time_in_words(Time.now, raffle.start_time)}"
     end
   end
+
+  def format_date(date)
+    date.strftime('%d %b, %y') if date
+  end
 end
