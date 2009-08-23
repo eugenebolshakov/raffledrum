@@ -9,23 +9,51 @@ form.formtastic fieldset ol li p.inline-hints { color:#333; }
 
 --------------------------------------------------------------------------------------------------*/
 
+form.formtastic fieldset {
+  display: block;
+}
+
 form.formtastic fieldset ol li {
   display: block
 }
 
+form.formtastic fieldset ol li label {
+  float: none;
+  width: auto;
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+form.formtastic fieldset ol li.string input {
+  width: 200px;
+  border: 1px solid #999999;
+  padding: 3px;
+}
+
+form.formtastic fieldset ol li.error input {
+  background-color: #FFDFDF;
+}
+
 form.formtastic fieldset ol li p.inline-hints {
-  color:#666666;
-  margin:0.5em 0 0 0;
+  display: inline;
+  color: #999999;
+  font-size: 0.9em;
+  margin: 0.5em 0 0 0.5em;
 }
 
 form.formtastic fieldset ol li p.inline-errors {
-  margin:0.5em 0 0 0;
-}
-
-form.formtastic fieldset.buttons {
-  width: 100%;
+  margin: 0.2em 0 0 0;
+  font-size: 0.9em;
 }
 
 form.formtastic fieldset.buttons {
   padding-left: 0;
+}
+
+form.formtastic fieldset.buttons input {
+  color: #fff;
+  background-color: #002233;
+  padding: 0.5em 1em;
+  border: 0px;
+  cursor: pointer;
 }
