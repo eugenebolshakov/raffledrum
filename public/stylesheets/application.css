@@ -108,6 +108,28 @@ a.invert:hover {
   font-size: 0.9em;
 }
 
+.participant {
+  border-bottom:1px dashed #999999;
+  padding:0.7em 0 0.6em;
+}
+
+.participant .thumb {
+  display: block;
+  height: 50px;
+  left: 1em;
+  margin: 0 10px 0 5px;
+  overflow: hidden;
+  position: absolute;
+  width: 50px;
+}
+
+.participant .body {
+  display: block;
+  margin-left: 65px;
+  min-height: 50px;
+  overflow: hidden;
+}
+
 #footer {
   padding-top: 10px;
   text-align: center;
