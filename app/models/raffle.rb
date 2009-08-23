@@ -12,9 +12,10 @@ class Raffle < ActiveRecord::Base
   validates_format_of :hashtag, :with => /^[A-Z\d]{1,16}$/i, 
     :message => 'must be 16 chars max. Letters or digits only'
 
+  # Hooks
+  before_validation_on_create :change_end_time_to_end_of_day
+
   # Named Scopes
-  named_scope :for_update, 
-    :conditions => ['start_time <= ? AND end_time >= ?', Time.now.utc, (Time.now - 30.minutes).utc]
   named_scope :active, lambda {{
     :conditions => ['start_time <= :now AND end_time >= :now', {:now => Time.now.utc}],
     :order      => 'end_time ASC'
@@ -52,4 +53,12 @@ class Raffle < ActiveRecord::Base
       update_attribute(:winner, winner)
     end
   end
+
+  private
+
+    def change_end_time_to_end_of_day
+      if end_time
+        self.end_time = end_time.end_of_day
+      end
+    end
 end

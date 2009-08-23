@@ -60,7 +60,7 @@ describe Raffle do
 
   it 'should have "active" named scope' do
     Factory :raffle, :start_time => 1.minute.from_now
-    Factory :raffle, :start_time => 3.minutes.ago, :end_time => 1.minute.ago
+    Factory :raffle, :start_time => 3.days.ago, :end_time => 1.day.ago
     Raffle.active.should be_empty
     r = Factory :raffle, :start_time => 1.minute.ago, :end_time => 1.minute.from_now
     Raffle.active.should == [r]
@@ -70,29 +70,16 @@ describe Raffle do
     Factory :raffle, :start_time => 1.minute.ago, :end_time => 1.minute.from_now
     Raffle.inactive.should be_empty
     r1 = Factory :raffle, :start_time => 1.minute.from_now
-    r2 = Factory :raffle, :start_time => 3.minutes.ago, :end_time => 1.minute.ago
+    r2 = Factory :raffle, :start_time => 3.days.ago, :end_time => 1.day.ago
     Raffle.inactive.should == [r1, r2]
   end
 
-  describe 'when returning raffles for udpate' do
-    it 'should not return raffles that have not started yet' do
-      Factory :raffle, :start_time => 1.hour.from_now
-      Raffle.for_update.should be_empty
-    end
-
-    it 'should return raffles that are running now' do
-      r = Factory :raffle, :start_time => 1.minute.ago
-      Raffle.for_update.should == [r]
-    end
-
-    it 'should return raffles that ended 30 minutes ago max' do
-      r = Factory :raffle, :start_time => 1.hour.ago, :end_time => 29.minutes.ago
-      Raffle.for_update.should == [r]
-    end
-
-    it 'should not return raffles that ended more than 30 minutes ago' do
-      r = Factory :raffle, :start_time => 1.hour.ago, :end_time => 31.minutes.ago
-      Raffle.for_update.should be_blank
+  describe 'on validation' do
+    it 'should change the end time to be the end of the day' do
+      @it.end_time = '23 August'
+      @it.end_time.strftime('%H:%M').should == '00:00'
+      @it.valid?
+      @it.end_time.strftime('%H:%M').should == '23:59'
     end
   end
 
