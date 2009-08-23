@@ -43,6 +43,6 @@ class Raffle < ActiveRecord::Base
   end
 
   def pick_winner!
-    update_attribute(:winner, participants[rand(participants.size)])
+    update_attribute(:winner, Participant.find(:first, :order => 'rand()'))
   end
 end
