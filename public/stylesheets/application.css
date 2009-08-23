@@ -130,6 +130,19 @@ a.invert:hover {
   overflow: hidden;
 }
 
+.winner {
+  background-color: #5599BB;
+  padding: 0 0.5em 0.5em 0.5em;
+}
+
+.winner a {
+  color: #fff;
+}
+
+.winner .participant {
+  border: none;
+}
+
 #footer {
   padding-top: 10px;
   text-align: center;
@@ -186,5 +199,3 @@ a.invert:hover {
 *:first-child+html .pagination {
   overflow: hidden; 
 }
-
-
