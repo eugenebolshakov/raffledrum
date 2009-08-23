@@ -131,9 +131,9 @@ a.invert:hover {
 }
 
 #footer {
-  padding-top: 10px;
+  padding-top: 1em;
+  font-size: 0.9em;
   text-align: center;
-  display:none;
 }
 
 .notice {
