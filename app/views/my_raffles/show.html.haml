@@ -9,10 +9,10 @@
 - if @raffle.ended?
   - if @raffle.winner
     %h2 And the winner is:
-    .winner
+    %div{:class => 'notice winner'}
       = render :partial => 'participant', :object => @raffle.winner
       = link_to 'Choose another winner', change_winner_my_raffle_path(@raffle), :method => :put
-      &nbsp;&nbsp;&nbsp;
+      \/
       = link_to 'Tweet it', tweet_message_url("Congrats, @#{@raffle.winner.twitter_login}! You're the winner! ##{@raffle.hashtag}"), :target => '_blank'
   - else
     %h2 The winner is not selected yet. Please check back in a moment!

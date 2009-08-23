@@ -12,7 +12,9 @@
   %body
     #container
       = render :partial => 'layouts/header'
-      #flash= flash[:notice]
+      - if flash[:notice]
+        #flash
+          .notice= flash[:notice]
       #middle= yield
       #footer
         &copy;

@@ -28,6 +28,7 @@ class MyRafflesController < ApplicationController
 
   def change_winner
     @raffle.pick_winner!
+    flash[:notice] = 'Another winner has been selected'
     redirect_to my_raffle_path(@raffle)
   end
 

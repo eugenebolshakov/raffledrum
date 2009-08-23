@@ -130,23 +130,27 @@ a.invert:hover {
   overflow: hidden;
 }
 
-.winner {
-  background-color: #5599BB;
-  padding: 0 0.5em 0.5em 0.5em;
-}
-
-.winner a {
-  color: #fff;
-}
-
-.winner .participant {
-  border: none;
-}
-
 #footer {
   padding-top: 10px;
   text-align: center;
   display:none;
+}
+
+.notice {
+  display: inline-block;
+  background: #FFF6BF none repeat scroll 0 0;
+  border: 2px solid #FFD324;
+  padding: 0.8em;
+  color: #514721;
+}
+
+.winner .thumb {
+  left: 2em;
+}
+
+.winner .participant {
+  border: none;
+  padding: 0;
 }
 
 .pagination {
