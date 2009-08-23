@@ -1,6 +1,7 @@
 class Raffle < ActiveRecord::Base
   # Attributes
   attr_accessible :prize, :start_time, :end_time, :hashtag
+  xss_terminate :except => [:last_tweet_id]
 
   # Associations
   belongs_to :user

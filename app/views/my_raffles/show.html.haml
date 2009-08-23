@@ -1,6 +1,10 @@
-%h2= "##{@raffle.hashtag}"
+%h1= "##{@raffle.hashtag} Raffle"
 
-%p= raffle_time(@raffle)
+.raffle
+  %span.ad
+    Winner gets
+    = @raffle.prize
+  %span.time= raffle_time(@raffle)
 
 - if @raffle.ended?
   - if @raffle.winner
@@ -9,10 +13,12 @@
   - else
     The winner is not selected yet. Please check back in a moment!
 
-%h3 Participants
+- if @participants.empty?
+  %h2 No participants yet. Check back latter!
 
-= render :partial => 'participant', :collection => @participants
+- else
+  %h2 Participants
+  = render :partial => 'participant', :collection => @participants
+  = will_paginate @participants
 
-= will_paginate @participants
-
-%p= link_to('Back to my other raffles', my_raffles_path)
+%p= link_to'Back to my other raffles', my_raffles_path, :class => 'invert'

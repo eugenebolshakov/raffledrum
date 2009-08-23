@@ -1,10 +1,11 @@
-%h2 Your Raffles
-
-%p= link_to('Start a new one', new_my_raffle_path)
+%h1 Your Raffles
 
 - @raffles.each do |raffle|
-  %div{:id => "raffle-#{raffle.id}"}
-    = link_to "##{raffle.hashtag}", my_raffle_path(raffle)
-    <br />
-    = "participant".countize(raffle.participants.count)
-    = raffle_time(raffle)
+  %div.raffle{:id => "raffle-#{raffle.id}"}
+    %span.ad
+      = link_to "##{raffle.hashtag}", my_raffle_path(raffle)
+      \/
+      = "participant".countize(raffle.participants.count)
+    %span.time= raffle_time(raffle)
+
+%p= link_to 'Start a new one', new_my_raffle_path, :class => 'invert'

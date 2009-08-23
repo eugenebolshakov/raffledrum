@@ -1,4 +1,7 @@
 class Participant < ActiveRecord::Base
+  # Attributes
+  xss_terminate :except => [:twitter_user_id, :tweet_id]
+
   # Associations
   belongs_to :raffle
 

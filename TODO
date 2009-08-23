@@ -3,3 +3,4 @@ Change raffle update interval depending on how many tweets are fetched
 Add indexes
 Add support for multiple pages (through API) of tweets
 Add jquery JS for links that do POST or PUT
+style flash
