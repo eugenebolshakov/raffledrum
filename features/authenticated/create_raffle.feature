@@ -12,3 +12,5 @@ Feature: Create Raffle
     And I press "Create Raffle"
     Then I should see "Raffle has been created"
     And a raffle with hashtag "iwannaipod" should exist
+    And a job to update the raffle should be scheduled
+    And a job to pick a winner should be scheduled
