@@ -17,9 +17,15 @@ end
 
 Then /^I should see the participants$/ do
   @raffle.participants.each do |participant|
-    within "#participant-#{participant.id}" do |scope|
+    within ".participant#participant-#{participant.id}" do |scope|
       scope.should contain(participant.tweet)
     end
+  end
+end
+
+Then /^I should see the winner$/ do
+  within ".winner .participant#participant-#{@raffle.winner.id}" do |scope|
+    scope.should contain(@raffle.winner.tweet)
   end
 end
 

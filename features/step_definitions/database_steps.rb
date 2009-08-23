@@ -6,6 +6,14 @@ Given /^there are (\d+) participants?$/ do |number|
   number.to_i.times { Factory :participant, :raffle => @raffle }
 end
 
+Given /^the raffle has ended$/ do
+  @raffle.update_attribute(:end_time, 1.minute.ago)
+end
+
+Given /the winner is selected$/ do
+  @raffle.pick_winner!
+end
+
 Then /^a raffle with hashtag "([^\"]*)" should exist$/ do |hashtag|
   @raffle = Raffle.find_by_hashtag(hashtag)
   @raffle.should_not be_nil
