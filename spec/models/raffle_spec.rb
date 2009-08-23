@@ -27,6 +27,12 @@ describe Raffle do
     end
   end
 
+  it 'should make sure that start time is less than end time' do
+    @it.start_time = 2.days.from_now
+    @it.end_time = 1.day.from_now
+    @it.should have(1).error_on(:end_time)
+  end
+
   it 'should strip out leading hash symbol' do
     @it.hashtag = '#5am'
     @it.hashtag.should == '5am'

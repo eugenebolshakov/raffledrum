@@ -11,6 +11,7 @@ class Raffle < ActiveRecord::Base
   validates_presence_of :prize, :start_time, :end_time, :hashtag
   validates_format_of :hashtag, :with => /^[A-Z\d]{1,16}$/i, 
     :message => 'must be 16 chars max. Letters or digits only'
+  validate :validate_times
 
   # Hooks
   before_validation_on_create :change_end_time_to_end_of_day
@@ -59,6 +60,14 @@ class Raffle < ActiveRecord::Base
     def change_end_time_to_end_of_day
       if end_time
         self.end_time = end_time.end_of_day
+      end
+    end
+
+    def validate_times
+      if start_time && end_time
+        if end_time < start_time
+          errors.add(:end_time, 'must be earlier than the start time')
+        end
       end
     end
 end
