@@ -5,7 +5,7 @@ class HomeController < ApplicationController
         new_my_raffle_path : 
         my_raffles_path
     else
-      @randon_raffle = Raffle.active.find(:first, :order => 'rand()')
+      @random_raffle = Raffle.active.find(:first, :order => 'rand()')
     end
   end
 end

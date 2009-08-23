@@ -3,7 +3,7 @@ Given /^I have a raffle with hashtag "([^\"]*)"$/ do |hashtag|
 end
 
 Given /^there is a raffle with hashtag "([^\"]*)"$/ do |hashtag|
-  @raffle = Factory :raffle, :hashtag => hashtag
+  @raffle = Factory :raffle, :hashtag => hashtag, :user => Factory(:user)
 end
 
 Given /^there are (\d+) participants?$/ do |number|

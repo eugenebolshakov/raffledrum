@@ -39,6 +39,6 @@ end
 
 Then /^I should see the raffle$/ do
   within "#raffle-#{@raffle.id}" do |scope|
-    scope.should include("##{@raffle.hashtag}")
+    scope.should contain("##{@raffle.hashtag}")
   end
 end
