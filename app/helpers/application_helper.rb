@@ -44,7 +44,7 @@ document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.
 try {
 var pageTracker = _gat._getTracker("UA-10352909-1");
 pageTracker._trackPageview();
-} catch(err) {}</script>a
+} catch(err) {}</script>
 GA
   end
 end
