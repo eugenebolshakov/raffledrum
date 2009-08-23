@@ -6,4 +6,5 @@ Factory.define :participant do |p|
   p.tweet_id                   '1234567'
   p.posted_at                  { Time.now }
   p.raffle                     nil
+  p.winner                     false
 end

@@ -97,13 +97,31 @@ describe Raffle do
   end
 
   describe 'when selecting winner' do
-    it 'should pick one of the participants' do
+    before(:each) do
       @it = Factory :raffle
       3.times { Factory :participant, :raffle => @it }
       @it.winner.should be_nil
+    end
+
+    it 'should pick one of the participants' do
       @it.pick_winner!
       @it.winner.should_not be_nil
       @it.participants.should include(@it.winner)
+    end
+
+    it 'should mark the participant as winner' do
+      @it.pick_winner!
+      @it.reload
+      @it.winner.should be_winner
+    end
+
+    it 'should reset winner flag if all participants have been selected as winners' do
+      3.times { @it.pick_winner! }
+      @it.participants.loosers.should be_empty
+      @it.pick_winner!
+      @it.reload
+      @it.participants.loosers.count.should == 2
+      @it.winner.should be_winner
     end
   end
 end

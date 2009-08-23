@@ -7,4 +7,5 @@ class Participant < ActiveRecord::Base
 
   # Named Scopes
   default_scope :order => 'posted_at DESC'
+  named_scope :loosers, :conditions => {:winner => false}
 end

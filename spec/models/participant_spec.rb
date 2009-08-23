@@ -12,4 +12,11 @@ describe Participant do
     Factory :participant, :raffle => raffle
     @it.should validate_uniqueness_of(:twitter_user_id).scoped_to(:raffle_id)
   end
+
+  it 'should have a "loosers" named scope' do
+    Factory :participant, :winner => true
+    Participant.loosers.should be_empty
+    l = Factory :participant, :winner => false
+    Participant.loosers.should == [l]
+  end
 end

@@ -43,6 +43,13 @@ class Raffle < ActiveRecord::Base
   end
 
   def pick_winner!
-    update_attribute(:winner, Participant.find(:first, :order => 'rand()'))
+    if participants.loosers.count.zero?
+      participants.update_all('winner = 0')
+    end
+    winner = participants.loosers.find(:first, :order => 'rand()')
+    if winner
+      winner.update_attribute(:winner, true)
+      update_attribute(:winner, winner)
+    end
   end
 end
