@@ -1,4 +1,61 @@
-#container {
-  width: 770px;
-  margin: 0 auto;
+body {
+  background-color:#FFF;
+  font-family:'Lucida Grande',sans-serif;
+  font-size:0.75em;
 }
+
+img {
+  border-color:transparent;
+  border-width:0;
+}
+
+ul {
+  list-style-image:none;
+  list-style-position:outside;
+  list-style-type:none;
+}
+
+#container {
+  margin:1em auto;
+  position: relative;
+  width:763px;
+}
+
+#header {
+  text-align: right;
+  height: 100px;
+  margin-bottom: 15px;
+}
+
+#logo img {
+  left: 0px;
+  position: absolute;
+}
+
+.top-navigation {
+  display: inline-block;
+  padding:0 0.7em;
+  background-color: #ebebeb;
+}
+
+.top-navigation li {
+  position:relative;
+}
+
+.top-navigation * {
+  display: inline;
+}
+
+.top-navigation li a, .top-navigation li span {
+  font-size: 1.05em;
+  padding: 0.5em 0.15em;
+  border: 1px solid transparent;
+  display:inline-block;
+}
+
+#middle {
+  background-color: #ebebeb;
+  padding: 10px 10px 10px;
+}
+
+

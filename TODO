@@ -1,7 +1,6 @@
 Only followers participate
 Change raffle update interval depending on how many tweets are fetched
 Validate raffle dates
-Add xss_terminate
 Add indexes
 Add support for multiple pages (through API) of tweets
 Add jquery JS for links that do POST or PUT
