@@ -2,12 +2,20 @@ Given /^I have a raffle with hashtag "([^\"]*)"$/ do |hashtag|
   @raffle = Factory :raffle, :hashtag => hashtag, :user => current_user
 end
 
+Given /^there is a raffle with hashtag "([^\"]*)"$/ do |hashtag|
+  @raffle = Factory :raffle, :hashtag => hashtag
+end
+
 Given /^there are (\d+) participants?$/ do |number|
   number.to_i.times { Factory :participant, :raffle => @raffle }
 end
 
 Given /^the raffle has ended$/ do
   @raffle.update_attribute(:end_time, 1.minute.ago)
+end
+
+Given /^the raffle is active$/ do
+  @raffle.update_attributes(:start_time => 3.days.ago, :end_time => 3.days.from_now)
 end
 
 Given /the winner is selected$/ do

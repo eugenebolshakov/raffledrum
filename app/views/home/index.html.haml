@@ -1,1 +1,6 @@
+
 = link_to 'Create your twitter raffle', new_my_raffle_path
+
+- if @random_raffle
+  %div{:id => "raffle-#{@random_raffle.id}"}
+    = raffle_ad(@random_raffle)

@@ -36,3 +36,9 @@ end
 Then /^I should be redirected to (.+)$/ do |page_name|
   (response.redirect_url || request.path).should == path_to(page_name)
 end
+
+Then /^I should see the raffle$/ do
+  within "#raffle-#{@raffle.id}" do |scope|
+    scope.should include("##{@raffle.hashtag}")
+  end
+end
