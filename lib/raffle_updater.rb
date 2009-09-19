@@ -27,7 +27,9 @@ class RaffleUpdater
     def valid_tweet?(tweet)
       time = Time.parse(tweet['created_at'])
       time >= @raffle.start_time &&
-      time <= @raffle.end_time 
+      time <= @raffle.end_time &&
+      tweet['from_user'] != 'raffledrum' &&
+      tweet['from_user_id'] != @raffle.user.twitter_id
       # &&
       # @raffle.user.followers.include?(tweet['from_user_id'])
     end
