@@ -1,19 +1,19 @@
 set :application, "raffledrum"
-set :repository,  "git@github.com:railsrumble/rr09-team-41.git"
+set :repository,  "git://github.com/eugenebolshakov/raffledrum.git"
 set :rails_env, 'production'
+set :use_sudo, false
 
 default_run_options[:pty] = true
 
 set :scm, "git"
 set :scm_passphrase, ""
-set :branch, "railsrumble09"
-set :user, "rumble09-041"
+set :user, 'eugenebolshakov'
 
-set :deploy_to, "/var/www/#{application}"
+set :deploy_to, "/home/eugenebolshakov/raffledrum.taknado.com"
 
-role :app, "97.107.134.144"
-role :web, "97.107.134.144"
-role :db,  "97.107.134.144", :primary => true
+role :app, "taknado.com"
+role :web, "taknado.com"
+role :db,  "taknado.com", :primary => true
 
 
 desc "Symlink the database config file from shared directory to current release directory."
